@@ -7,6 +7,10 @@ const models = require('./models')
 const { ensureAsync } = require('async')
 const bcrypt = require('bcrypt')
 const session = require('express-session')
+const userRoutes = require('./routes/users')
+const playlistRoutes = require('./routes/playlists')
+const postRoutes = require('./routes/posts')
+const searchRoutes = require('./routes/searches')
 
 const PORT = 3000
 const VIEWS_PATH = path.join(__dirname, '/views')
@@ -22,9 +26,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.engine('mustache', mustacheExpress(VIEWS_PATH + '/partials', '.mustache'))
 app.set('views', VIEWS_PATH)
 app.set('view engine', 'mustache')
-
-app.get('/register', (req, res) => {
-    res.render('register')
-})
+app.use('/users', userRoutes)
+app.use('/playlists', playlistRoutes)
+app.use('/searches', searchRoutes)
+app.use('/posts', postRoutes)
 
 app.listen(PORT, () => console.log("Server is running..."))
