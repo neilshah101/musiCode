@@ -11,6 +11,7 @@ const userRoutes = require('./routes/users')
 const playlistRoutes = require('./routes/playlists')
 const postRoutes = require('./routes/posts')
 const searchRoutes = require('./routes/searches')
+const authenticate = require('./authentication/auth')
 
 app.use("/Main_sources",express.static("Main_sources"))
 

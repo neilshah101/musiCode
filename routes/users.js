@@ -3,7 +3,7 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 const models = require('../models')
 const SALT_ROUNDS = 10
-
+const authenticate = require('../authentication/auth')
 
 router.get('/register', (req, res) => {
     res.render('register')
@@ -61,7 +61,6 @@ router.post('/login', async (req, res) => {
     if(user != null) {
         bcrypt.compare(password, user.password, (error, result) => {
             if(result) {
-                //create a session
                 if(req.session) {
                     req.session.user = {userId: user.id}
                     res.redirect('/')
@@ -71,7 +70,6 @@ router.post('/login', async (req, res) => {
             }
         })
     } else {
-        //if the user is null
         res.render('/login', {message: "Incorrect username or password"})
     }
 })
