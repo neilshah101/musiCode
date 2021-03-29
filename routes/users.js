@@ -32,15 +32,15 @@ router.post('/register', async (req, res) => {
                 
                 let savedUser = await user.save()
                 if (savedUser != null) {
-                res.redirect('/login')
+                res.redirect('/users/login')
                 } else {
-                res.render('/register', {message: "User already exists!"})
+                res.render('/users/register', {message: "User already exists!"})
                 }
             }
         })
 
     } else {
-        res.render('/register', {message: "User already exists!"})
+        res.render('/users/register', {message: "User already exists!"})
     }
 })
 
@@ -64,7 +64,7 @@ router.post('/login', async (req, res) => {
                 //create a session
                 if(req.session) {
                     req.session.user = {userId: user.id}
-                    res.redirect('/users/products')
+                    res.redirect('/')
                 }
             } else {
                 res.render('login', {message: "Incorrect username or password"})
@@ -72,7 +72,7 @@ router.post('/login', async (req, res) => {
         })
     } else {
         //if the user is null
-        res.render('login', {message: "Incorrect username or password"})
+        res.render('/login', {message: "Incorrect username or password"})
     }
 })
 
