@@ -12,6 +12,8 @@ const playlistRoutes = require('./routes/playlists')
 const postRoutes = require('./routes/posts')
 const searchRoutes = require('./routes/searches')
 
+app.use("/Main_sources",express.static("Main_sources"))
+
 const PORT = 3000
 const VIEWS_PATH = path.join(__dirname, '/views')
 
@@ -30,5 +32,9 @@ app.use('/users', userRoutes)
 app.use('/playlists', playlistRoutes)
 app.use('/searches', searchRoutes)
 app.use('/posts', postRoutes)
+
+app.get('/template', (req, res) => {
+    res.render('template')
+})
 
 app.listen(PORT, () => console.log("Server is running..."))
