@@ -7,6 +7,7 @@ const models = require('./models')
 const { ensureAsync } = require('async')
 const bcrypt = require('bcrypt')
 const session = require('express-session')
+app.use("/Main_sources",express.static("Main_sources"))
 
 const PORT = 3000
 const VIEWS_PATH = path.join(__dirname, '/views')
@@ -25,6 +26,10 @@ app.set('view engine', 'mustache')
 
 app.get('/register', (req, res) => {
     res.render('register')
+})
+
+app.get('/template', (req, res) => {
+    res.render('template')
 })
 
 app.listen(PORT, () => console.log("Server is running..."))
