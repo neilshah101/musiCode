@@ -1,0 +1,503 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Groovy - Angular js music theme</title>
+	
+	<meta name="description" content="Admin Box is a full angular js administration theme. Built wth bootstrap and optimised with grunt tasks for development and production tasks to increase site performance and speed.">
+	<meta name="author" content="Joao Garin">
+	<meta name="copyright" content="Joao Garin">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2016-02-14T00:00:00+01:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	
+	
+	
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#EFEFEF;color:#1C140D;}
+		::-moz-selection{background:#1FAE5B;color:#1C140D;}
+		::selection{background:#1FAE5B;color:#1C140D;}
+		#documenter_sidebar #documenter_logo{background-image:url();}
+		a{color:#1FAE5B;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #1FAE5B, #1FAE5B);
+			  background-image: -ms-linear-gradient(top, #1FAE5B, #1FAE5B);
+			  background-image: -webkit-gradient(linear, 0 0, 0 1FAE5B%, from(#F2E9E1), to(#1FAE5B));
+			  background-image: -webkit-linear-gradient(top, #1FAE5B, #1FAE5B);
+			  background-image: -o-linear-gradient(top, #1FAE5B, #1FAE5B);
+			  background-image: linear-gradient(top, #1FAE5B, #1FAE5B);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1FAE5B', endColorstr='#1FAE5B', GradientType=0);
+			  border-color: #1FAE5B #1FAE5B #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #1FAE5B #1FAE5B #bfbfbf;
+		  background-color: #1FAE5B;
+		}
+		hr{border-top:1px solid #CCCCCC;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#F2E9E1;color:#1C140D;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #FFF6ED;-moz-text-shadow:1px 1px 0px #FFF6ED;text-shadow:1px 1px 0px #FFF6ED;}
+		#documenter_sidebar ul{border-top:1px solid #F2E9E1;}
+		#documenter_sidebar ul a{border-top:1px solid #FFF6ED;border-bottom:1px solid #F2E9E1;color:#1C140D;}
+		#documenter_sidebar ul a:hover{background:#1FAE5B;color:#1C140D;border-top:1px solid #1FAE5B;}
+		#documenter_sidebar ul a.current{background:#1FAE5B;color:#1C140D;border-top:1px solid #1FAE5B;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-groovy">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#installation" title="Installation">Installation</a>
+				<ul>
+					<li><a href="#installation_packagejson_development_dependencies">package.json - Development dependencies</a>
+					<li><a href="#installation_bowerjson_external_dependencies">Bower.json - External dependencies</a>
+				</ul>
+			</li>
+			<li><a href="#application_structure" title="Application Structure">Application Structure</a></li>
+			<li><a href="#media_player" title="Media Player">Media Player</a>
+				<ul>
+					<li><a href="#media_player_playlistctrl">PlayListCtrl</a>
+					<li><a href="#media_player_creating_new_playlists">Creating new playlists</a>
+					<li><a href="#media_player_listing_songs">Listing songs</a>
+					<li><a href="#media_player_artist_list">Artist list</a>
+					<li><a href="#media_player_artist_sogns_detail_information">Artist sogns / detail information</a>
+					<li><a href="#media_player_albums">Albums</a>
+					<li><a href="#media_player_genres">Genres</a>
+				</ul>
+			</li>
+			<li><a href="#css_files" title="CSS Files">CSS Files</a></li>
+			<li><a href="#icons" title="Icons">Icons</a>
+				<ul>
+					<li><a href="#icons_weather_icons">Weather icons</a>
+					<li><a href="#icons_font_awesome">Font awesome</a>
+				</ul>
+			</li>
+			<li><a href="#additional_angular_scripts" title="Additional Angular scripts">Additional Angular scripts</a>
+				<ul>
+					<li><a href="#additional_angular_scripts_angular_bootstrap_ui">Angular Bootstrap UI</a>
+					<li><a href="#additional_angular_scripts_nested_lists_angular_ui_tree">Nested lists / Angular Ui Tree</a>
+				</ul>
+			</li>
+			<li><a href="#credits" title="Credits">Credits</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright Joao Garin 2016<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>Groovy</h1>
+	<h2>Angular js music theme</h2>
+	<div id="documenter_buttons">
+		
+	</div>
+	<hr>
+	<ul>
+	<li>created: 11/12/2014</li>
+	<li>latest update: 02/14/2016</li>
+	<li>by: Joao Garin</li>
+	<li><a href="http://themeforest.joaogarin.com/Groovy">themeforest.joaogarin.com/Groovy</a></li>
+	<li>email: <a href="mailto:&#106;&#111;&#97;&#111;&#46;&#103;&#97;&#114;&#105;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#106;&#111;&#97;&#111;&#46;&#103;&#97;&#114;&#105;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></li>
+	</ul>
+	<p>Thank you for buying the theme</p>
+	</section>
+	
+	<section id="installation">
+	<div class="page-header"><h3>Installation</h3><hr class="notop"></div>
+<h2>
+	Installing</h2>
+<p>
+	To deloy the theme simply put the files into your webserver (ex : www.example.com) and navigate to it through the browser</p>
+<p>
+	&nbsp;</p>
+<h2>
+	Changing and deploying</h2>
+<p>
+	The theme comes with grunt.js integration and bower so in order to have an optimised installation the recommended way is buy performing the grunt and bower tasks described bellow.</p>
+<h3>
+	Development</h3>
+<p>
+	For development purposed javascript files and css files will not be compressed in order to be able to debug and find easily where any issue is.</p>
+<h3>
+	Testing</h3>
+<p>
+	The theme contains a test grunt task using jshint to go trough the code and find possible issues with the code.</p>
+<h3>
+	Production / Minified&nbsp;</h3>
+<p>
+	Minified task compresses css files, js files, compiles html templates in to javascript all in order to fully optimize the final application and make it as fast and reliable as possible.</p>
+<p>
+	&nbsp;</p>
+<h2>
+	How to perform the grunt tasks :&nbsp;</h2>
+<p>
+	To perform the grunt tasks you will need the following things installed in either your local maching (recommended) or on the webserver, depending where you are performing the tasks. For more information on grunt follow this link :&nbsp;<a href="http://gruntjs.com/">http://gruntjs.com/</a></p>
+<p>
+	1 ) Install node.js on your maching. It provides also installations for all other platforms :&nbsp;<a href="http://nodejs.org/download/">http://nodejs.org/download/</a></p>
+<p>
+	On Ubuntu running the sudo apt-get install nodejs might run into problems as the version available in the package manager is not supported. For more info check :&nbsp;<a href="http://stackoverflow.com/questions/12913141/installing-from-npm-fails">http://stackoverflow.com/questions/12913141/installing-from-npm-fails</a></p>
+<p>
+	2 )&nbsp;Before setting up Grunt ensure that your <a href="https://www.npmjs.org/">npm</a> is installed and up-to-date by running npm update -g npm (this might require sudo on certain systems). To install on linux you can run :<strong>&nbsp;sudo apt-get install npm</strong></p>
+<p>
+	2 ) Install grunt Command line interface (CLI) by following :&nbsp;<a href="http://gruntjs.com/getting-started">http://gruntjs.com/getting-started</a></p>
+<p>
+	3 ) make sure all packages are installed by running in your application root folder the following : <strong>sudo&nbsp;npm install</strong></p>
+<p>
+	4 ) Enable all dependencies by running : bower install</p>
+<p>
+	5 ) Run the task you want :</p>
+<ul>
+	<li>
+		grunt dev (grunt --force dev for forcing erros to pass)</li>
+	<li>
+		grunt test&nbsp;(grunt --force test for forcing erros to pass)</li>
+	<li>
+		grunt minified&nbsp;(grunt --force minified for forcing erros to pass)</li>
+</ul>
+<p>
+	This will compile &nbsp;the scripts in the application (app, controllers, directives, services, all extra scripts like all the charting libraries etc) and put them into one single js file and one single css file inside the destination folder in this case &quot;<strong>dist</strong>&quot;.</p>
+<p>
+	After that simply push your root files and the dist folder into the webserver and you are done! You have a full compressed and optimized site running.</p>
+<p>
+	Files contained in the compressed application :&nbsp;</p>
+<ul>
+	<li>
+		index.html</li>
+	<li>
+		images</li>
+	<li>
+		fonts</li>
+	<li>
+		dist</li>
+</ul>
+<p>
+	&nbsp;</p>
+<h4 id="installation_packagejson_development_dependencies">package.json - Development dependencies</h4>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); background-color: rgb(238, 238, 238);">
+	In the file package.json are included the development dependencies, namely all the grunt modules to be able to run grunt to compile the theme. To instal the dependencies run&nbsp;<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline;">npm install</span>&nbsp;and this will install all the dependencies.&nbsp;</p>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); background-color: rgb(238, 238, 238);">
+	To install a new dependency and save the dependency run the following command :</p>
+<ul style="margin: 18px 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); background-color: rgb(238, 238, 238);">
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		npm install&nbsp;<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline;">npm_module</span>&nbsp;--save-dev</li>
+</ul>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); background-color: rgb(238, 238, 238);">
+	&nbsp;</p>
+<h4 id="installation_bowerjson_external_dependencies">Bower.json - External dependencies</h4>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); background-color: rgb(238, 238, 238);">
+	All dependenies are listed in the bower.json file. When running bower install all dependencies like jquery, angular, chartjs etc will be installed in the folder bower_components.</p>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); background-color: rgb(238, 238, 238);">
+	The following dependencies are included in the bower.json :</p>
+<pre style="color: rgb(56, 56, 56); line-height: normal; background-color: rgb(238, 238, 238);">
+&quot;dependencies&quot;: {
+    &quot;angular&quot;: &quot;~1.3.13&quot;,
+    &quot;angular-animate&quot;: &quot;~1.3.13&quot;,
+    &quot;angular-route&quot;: &quot;~1.3.13&quot;,
+    &quot;underscore&quot;: &quot;~1.8.1&quot;,
+    &quot;angular-wizard&quot;: &quot;~0.4.2&quot;,
+    &quot;angular-ui-tree&quot;: &quot;~2.2.0&quot;,
+    &quot;jquery&quot;: &quot;~2.1.3&quot;,
+    &quot;bootstrap&quot;: &quot;~3.2.0&quot;,
+    &quot;fontawesome&quot;: &quot;~4.3.0&quot;,
+    &quot;jqvmap&quot;: &quot;*&quot;,
+    &quot;weather-icons&quot;: &quot;~1.3.2&quot;,
+    &quot;angular-sanitize&quot;: &quot;~1.3.13&quot;,
+    &quot;angular-bootstrap&quot;: &quot;~0.12.0&quot;,
+    &quot;slimScroll&quot;: &quot;~1.3.3&quot;,
+    &quot;dripicons&quot;: &quot;~1.0.0&quot;,
+    &quot;angular-media-player&quot;: &quot;~0.5.8&quot;
+  }
+</pre>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); background-color: rgb(238, 238, 238);">
+	To include new dependencies run the following command to both install and save the dependency :&nbsp;</p>
+<ul style="margin: 18px 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); background-color: rgb(238, 238, 238);">
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		bower install&nbsp;<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline;">package_name&nbsp;</span>--save</li>
+	<li>
+		&nbsp;</li>
+</ul>
+<p>
+	<strong>Note :&nbsp;</strong></p>
+<p>
+	When prompted for the AngularJS version choose version 1.3.20</p>
+</section>
+<section id="application_structure">
+	<div class="page-header"><h3>Application Structure</h3><hr class="notop"></div>
+<p>	The application is organized in a way that is easy to fnd and change any script, separating the logic on controllers, directives, services and external libraries.</p>
+<p>	The HTML templates are also separate using angular-route to map between templates for a more performant and clean structure. Next are described all parts of the application and what to find in each of these parts :&nbsp;</p>
+<p>	&nbsp;</p>
+<h3>
+	index.html</h3>
+<p>	<img alt="" src="images/html.png"></p>
+<p>	Contians all &nbsp;the main includes, the overall sctructure of the page. Here is where lies the main imports for javscript and css, font, and HTML dom representation. Templates of specific pages are not present here but imported using <a href="https://docs.angularjs.org/api/ng/directive/ngInclude">ng-include</a></p>
+<h3>
+	Bower components&nbsp;</h3>
+<p>	In this folder are included all external libraries to be used by the &nbsp;theme, angular scripts, jquery, underscore, and all other libraries are imported from this folder. This folder&nbsp;<strong>does not contain app specific files but only external libraries. </strong>Files are included in this folder via bower (check previous chapter in <strong>Bower.json - External dependencies</strong>)</p>
+<h3>
+	Scripts</h3>
+<p>	In this folder are included other scripts necessary to the theme. These are not available via bower so they are included manually in this folder.</p>
+<h3>
+	Styles</h3>
+<p>	In this folder are included the stylesheets for the application. whenever you want to make changes to the style of the application you can make them here. These files are included to be compressed in the Gruntfile.js where they will be minified and compressed and imported into the &quot;dist&quot; folder.</p>
+<h3>
+	Images</h3>
+<p>	This is the folder where all images are stored.</p>
+<h3>
+	Fonts</h3>
+<p>	The fonts directory contains fonts for the application. The fonts include the font awesome icons and glyphicons as well as the weather icons.</p>
+<h3>
+	App</h3>
+<p>	The app directory is where the Angular app resides. here are all the templates, directives, controllers,main app file and services. The app directory contains 4 javascript files :&nbsp;</p>
+<ul>	<li>		app.js - The main app javascript file</li>
+	<li>		controllers.js - Where all the controllers are located</li>
+	<li>		directives.js - Where all the directives are located</li>
+	<li>		services.js - Where all the services are located</li>
+</ul>
+<p>	It also contains a &quot;<strong>views</strong>&quot; folder and a data folder. The views folder contains the templates for each view in the app. You can check which view corresponds to each path by &nbsp;looking at the app <strong>.config</strong> method in the app.js file.</p>
+<p>	The data folder contains json files that mimic the response to be provided by external webservices. These provide the data for the theme to work (musics, artists, albums etc).</p>
+<p>	&nbsp;</p>
+<p>	&nbsp;</p>
+</section>
+<section id="media_player">
+	<div class="page-header"><h3>Media Player</h3><hr class="notop"></div>
+<p>	The theme uses&nbsp;https://github.com/mrgamer/angular-media-player to play music, including a general playlist (the user&#39;s currnet playlist available in the controller&nbsp;<strong>PlayListCtrl</strong></p>
+<p>	&nbsp;</p>
+<h4 id="media_player_playlistctrl">PlayListCtrl</h4>
+<p>	This controller is responsible for displaying, playing and managing whatever the user has decided to add to the Queue (current playlist).</p>
+<p>	This controller includes methods such as add song, remove song, drop song (for drag and drop) and create new Playlist.</p>
+<p>	&nbsp;</p>
+<h4 id="media_player_creating_new_playlists">Creating new playlists</h4>
+<p>	The user can create new playlists for himself. Currently this playlists are added to the user&#39;s localStorage, which mimifies the server where user&#39;s playlists woud be saved. The method&nbsp;<strong>createNewPlaylist </strong>calls a service method that is responsible for handling this.</p>
+<p>	To replace this with a server simply change the method in services.js so that this saves the playlist in a webserver (via webservices) and not in localStorage.</p>
+<p>	&nbsp;</p>
+<h4 id="media_player_listing_songs">Listing songs</h4>
+<div>
+	Adding a songs listing is really simple, and this is done in a Artist detail page and also in the playlist details page. A sample of the necessary data is as follow :&nbsp;</div>
+<div>
+	&nbsp;</div>
+<pre>
+<code>artistPlaylistVar.push({ </code>
+ image: song.image,
+ src: song.url,
+ url: song.url,
+ type: &#39;audio/ogg&#39;,
+ artist: parseTitle[1],
+ title: parseTitle[2],
+ displayName:song.displayName
+});</pre>
+<p>	We can see that each song must have each of this fields including the type of file, src of the file and also artist title, song title and display name.</p>
+<p>	&nbsp;</p>
+<h4 id="media_player_artist_list">Artist list</h4>
+<p>	The artists listing page is a simple controller that , again, &nbsp;calls a service that gets the listing of Artists from a file (mimics the server) where artists are fetched from HTTP request.</p>
+<p>	To change where this artist list comes from simply change the call from this file to an actual server returning the same json file formatted as bellow :&nbsp;</p>
+<pre>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">[</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;"> {</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;url_name&quot;: &quot;thelunatics&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;name&quot;: &quot;Jason Derulo&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;image&quot;: &quot;dist/images/artists/artist1.jpg&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;genre&quot;: [&quot;Pop&quot;,&quot;Rock&quot;,&quot;Folk&quot;],</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;about&quot;: &quot;Great music inspired by early electronic sounds, combining the symphony of classical instruments    and complete surrounding&quot;</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;"> },</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;"> {</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;url_name&quot;: &quot;lafiestanegra&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;name&quot;: &quot;John Legend&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;image&quot;: &quot;dist/images/artists/artist2.jpg&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;genre&quot;: [&quot;New age&quot;,&quot;Celtic&quot;,&quot;World&quot;],</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;about&quot;: &quot;Great music inspired by early electronic sounds, combining the symphony of classical instruments    and complete surrounding&quot;</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;"> },....</span></pre>
+<p>	&nbsp;</p>
+<h4 id="media_player_artist_sogns_detail_information">Artist sogns / detail information</h4>
+<p>	The artists detail page and artists detail information is also a controller that , again, &nbsp;calls a service that gets the listing of Artists from a file (mimics the server) where artists are fetched from HTTP request.</p>
+<p>	To change what songs / artists and info gets returned to this view simply change the call from this file to an actual server returning the same json file formatted as bellow :&nbsp;</p>
+<pre>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">[</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;"> {</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;url_name&quot;: &quot;thelunatics&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;name&quot;: &quot;The lunatics&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;banner&quot;: &quot;dist/images/artists/artistbanner1.jpg&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;image&quot;: &quot;dist/images/artists/artist1.jpg&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;genre&quot;: [&quot;Pop&quot;,&quot;Rock&quot;,&quot;Folk&quot;],</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;about&quot;: &quot;Great music inspired by early electronic sounds, combining the symphony of classical instruments    and complete surrounding&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;albums&quot;: [</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;"> {</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;album_name&quot;:&quot;The king of Freedom&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;album_image&quot;:&quot;dist/images/albums/album1.jpg&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;album_release&quot;:&quot;April 2010&quot;,</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  &quot;songs&quot;: [</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  {&quot;image&quot;: &quot;dist/images/songs/song1.jpg&quot;, &quot;url&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/d/d0/Beatles_com  etogether.ogg&quot;, &quot;displayName&quot;: &quot;The lunatics - Come Together&quot; },</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  {&quot;image&quot;: &quot;dist/images/songs/song2.jpg&quot;, &quot;url&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/8/8c/Beatles_drive  _my_car.ogg&quot;, &quot;displayName&quot;: &quot;The lunatics - Drive my car&quot; },</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  {&quot;image&quot;: &quot;dist/images/songs/song3.jpg&quot;, &quot;url&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/1/1b/Beatles_loser  .ogg&quot;, &quot;displayName&quot;: &quot;The lunatics - Loser&quot; },</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  {&quot;image&quot;: &quot;dist/images/songs/song4.jpg&quot;, &quot;url&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/5/5a/Beatles_all_    my_loving.ogg&quot;, &quot;displayName&quot;: &quot;The lunatics - All my loving&quot; },</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  {&quot;image&quot;: &quot;dist/images/songs/song5.jpg&quot;, &quot;url&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/8/82/Beatles_taxm  an.ogg&quot;, &quot;displayName&quot;: &quot;The lunatics - Taxman&quot; },</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">  {&quot;image&quot;: &quot;dist/images/songs/song6.jpg&quot;, &quot;url&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/d/d0/Beatles_com  etogether.ogg&quot;, &quot;displayName&quot;: &quot;The lunatics - Tonight we do&quot; }</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;"> ]</span>
+<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">},...</span></pre>
+<p>	<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;">Each artist has a list of albums, each of which contains a list of songs. This gets then parsed in the <strong>ArtistCtrl&nbsp;</strong>controller to diplay the items correctly in the view as following :&nbsp;</span></p>
+<p>	<span style="color: rgb(33, 33, 33); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: small; line-height: 20px;"><img alt="" src="images/albums.png"></span></p>
+<p>	&nbsp;</p>
+<h4 id="media_player_albums">Albums</h4>
+<p>	The albums listing page is a simple controller that , again, &nbsp;calls a service that gets the listing of Albums from a file (mimics the server) where artists are fetched from HTTP request. The file is inside the folder <strong>app/data/albums.json</strong></p>
+<p>	&nbsp;</p>
+<h4 id="media_player_genres">Genres</h4>
+<p>	The genres listing page is a simple controller that , again, &nbsp;calls a service that gets the listing of Genres from a file (mimics the server) where artists are fetched from HTTP request. The file is inside the folder&nbsp;<strong>app/data/genres.json</strong></p>
+<p>	&nbsp;</p>
+<p>	&nbsp;</p>
+</section>
+<section id="css_files">
+	<div class="page-header"><h3>CSS Files</h3><hr class="notop"></div>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56);">
+	In the theme there are several SCSS files inside the &quot;styles&quot; folder. These files are organized as mention in the first chapter in the following folders :</p>
+<ul style="margin: 18px 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); ">
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline;">Partials</span>&nbsp;- The partials are mixins that are used across the application like @include box-shadow</li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline;">Base</span>&nbsp;- The base CSS files styling general elements like forms, buttons, cards, labels, lists etc</li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline;">Settings</span>&nbsp;- Cotains the settings for the application. Working like a configuration for the application CSS. Contains the colors of the theme in the file colors.scss</li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		<span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline;">Components</span>&nbsp;- Application specific components like Playlist, Artists page, albums detail page, other pages, team members styling etc</li>
+</ul>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); ">
+	All these files are compiled into the styles.scss file inside the styles folder and copied with grunt into the dist folder (minimized application).</p>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); ">
+	If you would like to edit a specific section of the site, simply find the appropriate CSS file as explained in the file styes.scss and then scroll down until you find the appropriate style that needs to be edited. For example for changing the default button style :&nbsp;</p>
+<pre style="color: rgb(56, 56, 56); line-height: normal; ">
+/* Contains all buttons styling, including Angular Material design buttons md-button */
+@import &quot;base/buttons&quot;;
+...</pre>
+<div style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; color: rgb(56, 56, 56);">
+	The theme uses bootstrap so some styling comes directly from bootstrap itself.For more information on bootstrap see&nbsp;<a href="http://getbootstrap.com/" style="font-family: inherit; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; vertical-align: baseline; color: rgb(0, 140, 158); text-decoration: none; cursor: pointer;" target="_blank">http://getbootstrap.com/</a></div>
+</section>
+<section id="icons">
+	<div class="page-header"><h3>Icons</h3><hr class="notop"></div>
+<p>	The theme includes different libraries for displaying icons. You can find these libraries coming from <strong>bower_components </strong>folder both from <strong>fontawesome</strong> folder and <strong>weather-icons </strong>folder.&nbsp;</p>
+<h4 id="icons_weather_icons">Weather icons</h4>
+<p>	For displaying weather icons the API from&nbsp;<a href="http://erikflowers.github.io/weather-icons/">http://erikflowers.github.io/weather-icons/</a>&nbsp;is used. It is a simple easy to use icon font generator that simillar to font awesome displays icons based on a &lt;i&gt; tag.</p>
+<pre>
+&lt;i class=&quot;wi wi-day-cloudy-gusts&quot;&gt;&lt;/i&gt;</pre>
+<p>	You can find all the icons in&nbsp;<a href="http://erikflowers.github.io/weather-icons/">http://erikflowers.github.io/weather-icons/</a></p>
+<p>	&nbsp;</p>
+<h4 id="icons_font_awesome">Font awesome</h4>
+<p>	The theme includes the fontawesome library for Icon generation. You can include icons anywhere on the template choosing from the great API that is fontawesome. &nbsp;</p>
+<p>	To include an icon on a page simply add the following class elements to a i tag code (eg: facebook icon) &nbsp; : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<pre>
+&lt;i class=&quot;fa fa-facebook fa-2x&quot;&gt;&lt;/i&gt; </pre>
+<p>	For more information on the API see <a href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome/</a></p>
+</section>
+<section id="additional_angular_scripts">
+	<div class="page-header"><h3>Additional Angular scripts</h3><hr class="notop"></div>
+<h4 id="additional_angular_scripts_angular_bootstrap_ui">Angular Bootstrap UI</h4>
+<p>	The theme includes the angular bootstrap ui script. This script provides a lot of functionalities through custom directives and controllers that make it incredibely easy to make use of a lot of elements like :&nbsp;</p>
+<ul>	<li>		Accordions</li>
+	<li>		Alerts</li>
+	<li>		Buttons</li>
+	<li>		Carousel</li>
+	<li>		Collapse</li>
+	<li>		Datepickers</li>
+	<li>		Dropdowns</li>
+	<li>		Modals</li>
+	<li>		Paginations</li>
+	<li>		Popovers</li>
+	<li>		Progress bars</li>
+	<li>		Ratings</li>
+	<li>		Tabs</li>
+	<li>		Timepickers</li>
+	<li>		Tooltips</li>
+	<li>		Typehead</li>
+</ul>
+<p>	All &nbsp;this and full documentation for how to use them can be found in&nbsp;<a href="http://angular-ui.github.io/bootstrap/">http://angular-ui.github.io/bootstrap/</a></p>
+<p>	&nbsp;</p>
+<h4 id="additional_angular_scripts_nested_lists_angular_ui_tree">Nested lists / Angular Ui Tree</h4>
+<p>	The nested lists is a code sample from&nbsp;<a href="https://github.com/JimLiu/angular-ui-tree">https://github.com/JimLiu/angular-ui-tree</a></p>
+<p>	It provides a easy way to organize lists inside of eachother, and attaching events to the js code you can actually perform tasks when a list is put inside another.</p>
+<p>	Here is sample of the HTML in the file <strong>nested-lists.html </strong>where a controller&nbsp;<strong>TreeDemoCtrl</strong>&nbsp;is providing the data and populating the tree that is using a template file (also present in this file) to render the HTML.</p>
+<pre>
+&lt;div class=&quot;page&quot; data-ng-controller=&quot;TreeDemoCtrl&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-12&quot;&gt;
+            &lt;section class=&quot;panel panel-default&quot;&gt;
+                &lt;div class=&quot;panel-heading&quot;&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-list panel-ico&quot;&gt;&lt;/i&gt;Nested Lists&lt;/strong&gt;&lt;/div&gt;
+                &lt;div class=&quot;panel-body&quot;&gt;
+                    &lt;div ui-tree=&quot;options&quot;&gt;
+                        &lt;ol ui-tree-nodes ng-model=&quot;list&quot; &gt;
+                            &lt;li ng-repeat=&quot;item in list&quot; ui-tree-node ng-include=&quot;&#39;items_renderer.html&#39;&quot;&gt;&lt;/li&gt;
+                        &lt;/ol&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/section&gt; 
+        &lt;/div&gt;
+    &lt;/div&gt;
+...</pre>
+<p>	&nbsp;</p>
+<p>	&nbsp;</p>
+</section>
+<section id="credits">
+	<div class="page-header"><h3>Credits</h3><hr class="notop"></div>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); ">
+	The following scripts and frameworks where used in the development of this theme :&nbsp;</p>
+<ul style="margin: 18px 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); ">
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		<span style="font-family: inherit; font-style: inherit; font-weight: inherit; line-height: 1.5em;">AngularJs -&nbsp;https://angularjs.org/</span></li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		UnderscoreJs -&nbsp;http://underscorejs.org/</li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		JQuery -&nbsp;http://jquery.com/</li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		Bootstrap -&nbsp;http://getbootstrap.com/</li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		Fontawesome -&nbsp;http://fortawesome.github.io/Font-Awesome/</li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		<span style="font-family: inherit; font-style: inherit; font-weight: inherit; line-height: 1.5em;">Angular bootstrap -&nbsp;https://github.com/angular-ui/bootstrap</span></li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		Angular media player -&nbsp;https://github.com/mrgamer/angular-media-player</li>
+</ul>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); ">
+	&nbsp;</p>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56);">
+	The following pages where used to get mp3 files for the demo of the theme</p>
+<ul style="padding-right: 0px; padding-left: 0px; margin: 18px 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56);">
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		http://ccmixter.org/files/snowflake/29407</li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		http://ccmixter.org/files/snowflake/29407</li>
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		http://ccmixter.org/files/admiralbob77/27917</li>
+</ul>
+<p style="margin: 18px 0px; padding: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); ">
+	The following sites where used to get images for the demo of the theme</p>
+<ul style="margin: 18px 0px; padding-right: 0px; padding-left: 0px; border: 0px; outline: 0px; font-family: Arial, verdana, arial, sans-serif; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); ">
+	<li style="margin: 0px 0px 0px 36px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style: square;">
+		Unsplash -&nbsp;https://unsplash.com/</li>
+</ul>
+</section>
+
+	</div>
+</body>
+</html>
