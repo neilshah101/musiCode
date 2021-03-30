@@ -1,0 +1,23 @@
+<div class="col-md-6 mt-2">
+        <form action="/users/login" method="POST" class="row g-3 needs-validation" novalidate>
+          <div class="col-md-6">
+            <label for="validationCustomUsername" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="Enter username" required>
+            <div class="invalid-feedback">
+              Please choose a username.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Create Password" name="password" required>
+            <div class="invalid-feedback">
+              Please provide a valid password.
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-outline-info" type="submit">Login</button>
+          </div>
+          <p>If you have not registered yet, <a href="/users/register">Click here</a></p>
+        </form>
+      </div>
+    </div>
