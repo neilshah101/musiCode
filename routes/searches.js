@@ -4,13 +4,6 @@ const models = require('../models')
 const fetch = require('node-fetch')
 
 
-// going to search page
-router.get('/', (req, res) => {
-    res.render('home')
-})
-
-
-
 // search the tracks, albums, etc
 router.post('/search', (req, res) => {
     const search = req.body.searchtextbox
