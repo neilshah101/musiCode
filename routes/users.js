@@ -9,6 +9,7 @@ router.get('/register', (req, res) => {
     res.render('register')
 })
 
+
 router.post('/register', async (req, res) => {
 
     let firstName = req.body.firstName
@@ -22,11 +23,11 @@ router.post('/register', async (req, res) => {
         }
     })
 
-    if(persistedUser == null) {
+    if (persistedUser == null) {
 
-        bcrypt.hash(password, SALT_ROUNDS, async (error, hash) => {
-            if(error) {
-                res.render('/register', {message: 'Error registering user!'})
+        bcrypt.hash(password, SALT_ROUNDS, async(error, hash) => {
+            if (error) {
+                res.render('/register', { message: 'Error registering user!' })
             } else {
                 let user = models.User.build({
 
@@ -35,18 +36,18 @@ router.post('/register', async (req, res) => {
                     username: username,
                     password: hash
                 })
-                
+
                 let savedUser = await user.save()
                 if (savedUser != null) {
-                res.redirect('/users/login')
+                    res.redirect('/users/login')
                 } else {
-                res.render('/users/register', {message: "User already exists!"})
+                    res.render('/users/register', { message: "User already exists!" })
                 }
             }
         })
 
     } else {
-        res.render('/users/register', {message: "User already exists!"})
+        res.render('/users/register', { message: "User already exists!" })
     }
 })
 
@@ -54,7 +55,7 @@ router.get('/login', (req, res) => {
     res.render('login')
 })
 
-router.post('/login', async (req, res) => {
+router.post('/login', async(req, res) => {
 
     let username = req.body.username
     let password = req.body.password
@@ -64,19 +65,21 @@ router.post('/login', async (req, res) => {
             username: username
         }
     })
-    if(user != null) {
+    if (user != null) {
         bcrypt.compare(password, user.password, (error, result) => {
-            if(result) {
-                if(req.session) {
-                    req.session.user = {userId: user.id}
+            if (result) {
+                if (req.session) {
+                    console.log(req.session)
+                    req.session.user = { userId: user.id }
+                    console.log(req.session)
                     res.redirect('/')
                 }
             } else {
-                res.render('login', {message: "Incorrect username or password"})
+                res.render('login', { message: "Incorrect username or password" })
             }
         })
     } else {
-        res.render('/login', {message: "Incorrect username or password"})
+        res.render('/login', { message: "Incorrect username or password" })
     }
 })
 

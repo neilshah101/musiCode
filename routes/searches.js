@@ -4,16 +4,11 @@ const models = require('../models')
 const fetch = require('node-fetch')
 
 
-// going to search page
-router.get('/', (req, res) => {
-    res.render('home')
-})
-
-
-
 // search the tracks, albums, etc
 router.post('/search', (req, res) => {
     const search = req.body.searchtextbox
+    const { userId } = req.session.user
+    console.log(userId)
     console.log(search)
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${search}`, {
         "method": "GET",
@@ -24,9 +19,9 @@ router.post('/search', (req, res) => {
     }).then(response => {
         return response.json();
     }).then(response => {
-        console.log(response)
-            // res.json(response)
-        res.render('search-results', { response: response.data });
+        // console.table(userId)
+        // res.json(response)
+        res.render('search-results', { response: response.data, userid: userId });
     })
 })
 

@@ -36,7 +36,7 @@ app.use('/playlists', playlistRoutes)
 app.use('/searches', searchRoutes)
 app.use('/posts', postRoutes)
 
-// going to search page
+// going to home page........ still have to design home page i have created this to just enable search function.
 app.get('/', (req, res) => {
     res.render('index')
 })
