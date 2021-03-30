@@ -20,17 +20,19 @@ app.use("/styling",express.static("styling"))
 const PORT = 3000
 const VIEWS_PATH = path.join(__dirname, '/views')
 
-app.use(session({
-    secret: 'somesecret',
-    resave: true,
-    saveUninitialized: false
-}))
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.engine('mustache', mustacheExpress(VIEWS_PATH + '/partials', '.mustache'))
 app.set('views', VIEWS_PATH)
 app.set('view engine', 'mustache')
+
+app.use(express.urlencoded())
+app.use(session({
+    secret: 'somesecret',
+    resave: false,
+    saveUninitialized: true
+}))
 app.use('/users', userRoutes)
 app.use('/playlists', playlistRoutes)
 app.use('/searches', searchRoutes)
