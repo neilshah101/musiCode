@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, intial-scale=1.0">
     <title>musiCode Post</title>
-    <link rel="stylesheet" href="/styles.css"/>
+    
 </head>
 <body>
     <div id='header'>
         <h1>musiCode Feed</h1>
     </div>
 
-    <form method="POST" action='/add-post' id='inputContainer'>
+    <form method="POST" action='/posts/add-post' id='inputContainer'>
         <div id="subjectDiv">
             <input type="text" placeholder="title" id="titleTextBox" name="title"/>
             
@@ -20,6 +20,8 @@
         <div id="bodyDiv">
             <input type="text" placeholder="body" id="bodyTextBox" name="body"/>
         </div>
+        <div id="projectUrl">
+            <input type="text" placeholder="projectUrl" id="projectUrlTextBox" name="projectUrl"/>
         <div id="submitDiv">
             <button id="postButton">Post</button>
         </div>
