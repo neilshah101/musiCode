@@ -13,7 +13,7 @@ const postRoutes = require('./routes/posts')
 const searchRoutes = require('./routes/searches')
 const authenticate = require('./authentication/auth')
 
-app.use("/Main_sources",express.static("Main_sources"))
+app.use("/styling",express.static("styling"))
 
 const PORT = 3000
 const VIEWS_PATH = path.join(__dirname, '/views')
