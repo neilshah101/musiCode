@@ -3,18 +3,24 @@
 <title>search result</title>
 </head>
 <body>
+
 {{#response}}
-<input type="hidden" value="{{id}}">
-<input type="hidden" value="{{title}}">
-<input type="hidden" value="{{artist.name}}">
-<input type="hidden" value="{{album.title}}">
-<input type="hidden" value="{{album.cover_medium}}">
-<input type="hidden" value="{{preview}}">
+
+
 {{title}}  ,  {{artist.name}}<br>
 {{album.title}}<br>
 <img src="{{album.cover_medium}}"><br>
 <a  href="{{preview}}">preview</a>
-<button><a href="/collection">Add To Collection<a></button>
+<form method="post" action="/playlists/collection">
+<input type="hidden" value="{{userid}}" name="userid">
+<input type="hidden" value="{{id}}" name="id">
+<input type="hidden" value="{{title}}" name="title">
+<input type="hidden" value="{{artist.name}}" name="artistName">
+<input type="hidden" value="{{album.title}}" name="albumTitle">
+<input type="hidden" value="{{album.cover_medium}}" name="coverUrl">
+<input type="hidden" value="{{preview}}" name="previewUrl">
+<button>Add To Collection</button>
+</form>
 <br><br><br>
 {{/response}}
 </body>
