@@ -79,7 +79,7 @@ router.post('/login', async(req, res) => {
             }
         })
     } else {
-        res.render('/login', { message: "Incorrect username or password" })
+        res.render('login', { message: "Incorrect username or password" })
     }
 })
 
