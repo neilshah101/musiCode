@@ -1,32 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
-{{> header}}
-    <title>musiCode</title>
+    {{> header}}
   </head>
   <body>
-    <h1>Login</h1>
-
-    <div class="container">
-    
     {{> menu}}
-    
+    <h1>Login</h1>
+    <form action="/users/login" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Username</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" placeholder="Enter username">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <p>If you have not registered yet, <a href="/users/register">Click here</a></p>
+    </form>
+    <div id="messageContainer">
+      <h1>{{message}}</h1>
     </div>
 
-    <form action="/users/login" method="POST">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Username</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" placeholder="Enter username">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-  </div>
-  <button type="submit" class="btn btn-primary">Login</button>
-  <p>If you have not registered yet, <a href="/users/register">Click here</a></p>
-</form>
-
-{{> footer}}
+  {{> footer}}
   </body>
 </html>
