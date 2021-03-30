@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>musiCode Post</title>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+    <div id='header'>
+        <h1>musiCode Feed</h1>
+    </div>
+
+    <form method="POST" action='/add-post' id='inputContainer'>
+        <div id="subjectDiv">
+            <input type="text" placeholder="title" id="titleTextBox" name="title"/>
+            <input type="text" placeholder="category" id="categoryTextBox" name="category"/>
+            {{! <div><label> }}
+        </div>
+        <div id="bodyDiv">
+            <input type="text" placeholder="body" id="bodyTextBox" name="body"/>
+        </div>
+        <div id="submitDiv">
+            <button id="postButton">Post</button>
+        </div>
+    </form>
+
+    <div id='postsContainer'>
+        {{#posts}}
+        <form class='post_container' method="POST" action='/delete-post'>
+            <input type="hidden" value="{{id}}" name="postId"/>
+            <div>{{title}}</div>
+            <div>{{body}}</div>
+            <div>{{category}}</div>
+            <div>{{createdAt}}</div>
+            <div><button>Delete</button></div>
+        </form>
+        {{/posts}}
+    </div>
+
+</body>
+</html>
+
