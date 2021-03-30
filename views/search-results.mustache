@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>search result</title>
+</head>
+<body>
+{{#response}}
+<input type="hidden" value="{{id}}">
+<input type="hidden" value="{{title}}">
+<input type="hidden" value="{{artist.name}}">
+<input type="hidden" value="{{album.title}}">
+<input type="hidden" value="{{album.cover_medium}}">
+<input type="hidden" value="{{preview}}">
+{{title}}  ,  {{artist.name}}<br>
+{{album.title}}<br>
+<img src="{{album.cover_medium}}"><br>
+<a  href="{{preview}}">preview</a>
+<button><a href="/collection">Add To Collection<a></button>
+<br><br><br>
+{{/response}}
+</body>
+
+</html>

@@ -12,8 +12,10 @@ const playlistRoutes = require('./routes/playlists')
 const postRoutes = require('./routes/posts')
 const searchRoutes = require('./routes/searches')
 const authenticate = require('./authentication/auth')
+const fetch = require('node-fetch')
 
 app.use("/styling",express.static("styling"))
+
 
 const PORT = 3000
 const VIEWS_PATH = path.join(__dirname, '/views')
@@ -33,6 +35,12 @@ app.use('/users', userRoutes)
 app.use('/playlists', playlistRoutes)
 app.use('/searches', searchRoutes)
 app.use('/posts', postRoutes)
+
+// going to search page
+app.get('/', (req, res) => {
+    res.render('index')
+})
+
 
 app.get('/template', (req, res) => {
     res.render('template')
