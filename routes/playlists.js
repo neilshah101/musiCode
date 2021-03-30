@@ -28,7 +28,7 @@ router.post('/collection', (req, res) => {
 
     collection.save().then((savedCollection) => {
         console.log(savedCollection)
-        res.json({ message: 'track added to collection' })
+        res.redirect('/search');
     })
 
 })
