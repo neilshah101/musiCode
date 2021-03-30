@@ -28,7 +28,7 @@ router.post('/collection', (req, res) => {
 
     collection.save().then((savedCollection) => {
         console.log(savedCollection)
-        res.redirect('/search');
+        res.json("added to your collection");
     })
 
 })
