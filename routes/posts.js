@@ -8,25 +8,35 @@ const user = require('../models/user')
 
 router.use(session({
     secret: 'somesecret',
-    resave: true,
-    saveUninitialized: false
+    resave: false,
+    saveUninitialized: true
 }))
 
 
-router.get('/posts', (req, res) => {
+router.get('/display-posts', (req, res) => {
     models.Post.findAll({})
     .then(posts => {
-        res.render('add-post', {posts: posts})
+        res.render('display-posts', {posts: posts})
     })
+})
+
+router.get('/add-post', (req, res) => {
+    const userId = req.session.userId
+    const username = req.session.username
+
+    if(username) {
+        res.render('add-post')
+    } else {
+        res.redirect('/users/login')
+    }
 })
 
 router.post('/add-post', (req, res) => {
     const title = req.body.title
     const body = req.body.body
     const projectUrl = req.body.projectUrl
-    const userId = req.body.userId
+    const userId = req.session.userId
     
-
     let post = models.Post.build({
         title: title, 
         body: body, 
@@ -34,10 +44,9 @@ router.post('/add-post', (req, res) => {
         userId: userId,
     })
 
-
     post.save().then((savedPost) => {
         console.log(savedPost)
-        res.redirect('/add-post')
+        res.redirect('/posts/display-posts')
     })
 })
 
