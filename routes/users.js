@@ -10,6 +10,9 @@ router.get('/register', (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
+
+    let firstName = req.body.firstName
+    let lastName = req.body.lastName
     let username = req.body.username
     let password = req.body.password
 
@@ -26,6 +29,9 @@ router.post('/register', async (req, res) => {
                 res.render('/register', {message: 'Error registering user!'})
             } else {
                 let user = models.User.build({
+
+                    firstName: firstName,
+                    lastName: lastName,
                     username: username,
                     password: hash
                 })
