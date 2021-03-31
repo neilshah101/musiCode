@@ -5,6 +5,19 @@ const fetch = require('node-fetch')
 
 
 
+router.get('/mycollection', (req, res) => {
+    const { userId } = req.session.user
+    console.log(userId)
+    models.Collection.findAll({
+        where: {
+            userId: userId
+        }
+    }).then(collections => {
+        res.render('display-playlist', { collections: collections });
+    })
+})
+
+
 router.post('/collection', (req, res) => {
 
     const userId = req.session.userId
