@@ -41,12 +41,11 @@ router.get('/my-posts', (req, res) => {
                 userId: userId,
             }
         }).then(posts => {
-            res.render('my-posts', {posts: posts})
+            res.render('my-posts', {posts: posts, firstName: req.session.firstName})
         })
     } else {
         res.redirect('/users/login')
     }
-    
 })
 
 router.post('/add-post', (req, res) => {
