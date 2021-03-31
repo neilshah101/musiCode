@@ -20,7 +20,7 @@ router.get('/mycollection', (req, res) => {
 
 router.post('/collection', (req, res) => {
 
-    const userId = req.body.userId
+    const userId = req.session.userId
     const songId = req.body.id
     const songTitle = req.body.title
     const artist = req.body.artistName
