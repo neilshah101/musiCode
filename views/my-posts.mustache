@@ -18,7 +18,18 @@
         </form>
         {{/posts}}
     </div>
+
+    <div id='postsContainer'>
+        {{#posts}}
+        {{! <form class='post_container' method="POST" action='/delete-post'>
+            <input type="hidden" value="{{id}}" name="postId"/> }}
+            <div>{{title}}</div>
+            <div>{{body}}</div>
+            <div>{{projectUrl}}</div>
+        {{! </form> }}
+        {{/posts}}
+    </div>
+    
      {{> footer}}
 </body>
 </html>
-
