@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     {{> header}}
+    <link rel="stylesheet" href="../styling/css/homepagestyling.css">
 </head>
 <body>
+  <div class="homepageBody">
    {{> menu}}
-    <div>
-       <form method="post" action="/searches/search">
-          <input type="text" name="searchtextbox" placeholder="search here">
-          <button>submit</button>
-       </form> 
+   <div class="welcomeText">
+   <p>Music sharing for developers, By developers</p>
+    <a href="users/register">
+    <button type="button" class="btn btn-light signupButton">Sign up now</button>
+   </a>
+    </div>
     </div>
 
     {{>footer}}

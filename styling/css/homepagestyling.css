@@ -1,0 +1,12 @@
+Body {
+    background-image: url('images/bluepurpleblob.jpg');
+  }
+
+.welcomeText {
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.89);
+  height: 200px;
+  text-align: center;
+  margin: auto;
+  padding: 50x 0;
+}
