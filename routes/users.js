@@ -5,10 +5,17 @@ const models = require('../models')
 const SALT_ROUNDS = 10
 const authenticate = require('../authentication/auth')
 
+router.get('/dashboard', authenticate, (req, res) => {
+    res.render('dashboard')
+})
+
+router.post('/dashboard', (req, res) => {
+
+})
+
 router.get('/register', (req, res) => {
     res.render('register')
 })
-
 
 router.post('/register', async (req, res) => {
 
@@ -47,7 +54,7 @@ router.post('/register', async (req, res) => {
         })
 
     } else {
-        res.render('/users/register', { message: "User already exists!" })
+        res.render('login', { message: "User already exists!" })
     }
 })
 
@@ -72,7 +79,7 @@ router.post('/login', async(req, res) => {
                     req.session.userId = user.id
                     req.session.username = user.username
                     console.log(req.session)
-                    res.redirect('/')
+                    res.redirect('/users/dashboard')
                 }
             } else {
                 res.render('login', { message: "Incorrect username or password" })
