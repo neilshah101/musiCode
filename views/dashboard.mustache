@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>musiCode</title>
+</head>
+<body>
+    {{>menu}}
+    <h3><i>Discover What Developers are Listening To</i></h3>
+    <p>Welcome back, {{user.firstname}}</p>
+    {{! this adds a post }}
+    <form method="POST" action='/posts/add-post' id='inputContainer'>
+        <div id="subjectDiv">
+            <input type="text" placeholder="title" id="titleTextBox" name="title"/>
+            
+        </div>
+        <div id="bodyDiv">
+            <input type="text" placeholder="body" id="bodyTextBox" name="body"/>
+        </div>
+        <div id="projectUrl">
+            <input type="text" placeholder="projectUrl" id="projectUrlTextBox" name="projectUrl"/>
+        <div id="submitDiv">
+            <button id="postButton">Post</button>
+        </div>
+    </form>
+
+    {{! this display posts from all users }}
+    <div id='postsContainer'>
+        {{#posts}}
+        {{! <form class='post_container' method="POST" action='/delete-post'>
+            <input type="hidden" value="{{id}}" name="postId"/> }}
+            <div>{{title}}</div>
+            <div>{{body}}</div>
+            <div>{{projectUrl}}</div>
+        {{! </form> }}
+        {{/posts}}
+    </div>
+    {{>footer}}
+</body>
+</html>
