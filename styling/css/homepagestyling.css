@@ -1,5 +1,10 @@
 Body {
     background-image: url('images/bluepurpleblob.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
   }
 
 .welcomeText {
@@ -9,4 +14,10 @@ Body {
   text-align: center;
   margin: auto;
   padding: 50x 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
