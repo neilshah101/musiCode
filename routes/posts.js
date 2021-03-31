@@ -31,6 +31,17 @@ router.get('/add-post', (req, res) => {
     }
 })
 
+router.get('/my-posts', (req, res) => {
+    const userId = req.session.userId
+    const username = req.session.username
+
+    if(username) {
+        res.render('my-posts')
+    } else {
+        res.redirect('/users/login')
+    }
+})
+
 router.post('/add-post', (req, res) => {
     const title = req.body.title
     const body = req.body.body
@@ -53,12 +64,12 @@ router.post('/add-post', (req, res) => {
 router.post('/delete-post', (req, res) => {
     const postId = req.body.postId
 
-    let deletePost = models.Post.destroy({
+    models.Post.destroy({
         where: {
             id: postId
         }
     }).then(deletedPost => {
-        res.redirect('/posts')
+        res.json("deleted")
     })
 })
 
@@ -69,7 +80,7 @@ router.post('/update-post', (req, res) => {
     const projectUrl = req.body.projectUrl
     const userId = req.session.userId
 
-    let update = models.Post.update({
+    models.Post.update({
         title: title, 
         body: body, 
         projectUrl: projectUrl,
