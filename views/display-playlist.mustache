@@ -1,9 +1,9 @@
 <html>
 <head>
-<title>my collection</title>
+{{>header}}
 </head>
 <body>
-
+{{>menu}}
 {{#collections}}
 
 
@@ -11,9 +11,13 @@
 {{albumTitle}}<br>
 <img src="{{coverUrl}}"><br>
 <button><a target="_blank" href="{{previewUrl}}">preview</a></button>
-
+<form method="post" action="/playlists/delete-collection">
+<input type="hidden" name="collectionId" value="{{id}}">
+<button>Remove This Track</button>
+</form>
 <br><br><br>
 {{/collections}}
+{{>footer}}
 </body>
 
 </html>
