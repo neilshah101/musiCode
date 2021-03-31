@@ -3,14 +3,26 @@ const router = express.Router()
 const models = require('../models')
 const fetch = require('node-fetch')
 
+router.post('/delete-collection', (req, res) => {
+    const collectionId = req.body.collectionId
+    console.log(collectionId)
 
+    models.Collection.destroy({
+        where: {
+            id: collectionId
+        }
+    }).then(deletedcollections => {
+        res.redirect('/playlists/mycollection')
+    })
+
+})
 
 router.get('/mycollection', (req, res) => {
     const userId = req.session.userId
     const username = req.session.username
     console.log(userId)
 
-    if(userId) {
+    if (userId) {
         models.Collection.findAll({
             where: {
                 userId: userId
@@ -21,7 +33,7 @@ router.get('/mycollection', (req, res) => {
     } else {
         res.redirect('/users/login')
     }
-    
+
 })
 
 
@@ -35,7 +47,7 @@ router.post('/collection', (req, res) => {
     const coverUrl = req.body.coverUrl
     const previewUrl = req.body.previewUrl
 
-    if(userId) {
+    if (userId) {
         let collection = models.Collection.build({
             userId: userId,
             songId: songId,
@@ -45,15 +57,15 @@ router.post('/collection', (req, res) => {
             coverUrl: coverUrl,
             previewUrl: previewUrl
         })
-    
+
         collection.save().then((savedCollection) => {
             console.log(savedCollection)
-            res.json("added to your collection");
+            res.redirect('/playlists/mycollection');
         })
     } else {
         res.redirect('/users/login')
     }
-    
+
 
 })
 
