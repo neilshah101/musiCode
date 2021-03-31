@@ -11,7 +11,7 @@
     {{>menu}}
     <br>
     
-    <h3>Welcome back, {{firstName}}</h3>
+    <h3>Hello, {{firstName}}</h3>
     <br>
     <h4>Share your music and what you're working on</h4>
     {{! this adds a post }}
@@ -35,13 +35,15 @@
     {{! this display posts from all users }}
     <div id='postsContainer'>
         {{#posts}}
-        {{! <form class='post_container' method="POST" action='/delete-post'>
-            <input type="hidden" value="{{id}}
+        <form class='post_container' method="POST" action='/display-my-post'>
+            <input type="hidden" value="{{id
             <input type="hidden" value="{{id}}" name="postId"/>
             <div>{{title}}</div>
             <div>{{body}}</div>
             <a target="_blank" href="{{projectUrl}}">Project Link</a>
             <br>
+            <button><a href = "/playlists/mycollection/{{userId}}">checkout what iam listening</a></button>
+
             <br>
         {{/posts}}
     </div>
