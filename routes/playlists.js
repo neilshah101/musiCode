@@ -6,15 +6,22 @@ const fetch = require('node-fetch')
 
 
 router.get('/mycollection', (req, res) => {
-    const { userId } = req.session.user
+    const userId = req.session.userId
+    const username = req.session.username
     console.log(userId)
-    models.Collection.findAll({
-        where: {
-            userId: userId
-        }
-    }).then(collections => {
-        res.render('display-playlist', { collections: collections });
-    })
+
+    if(userId) {
+        models.Collection.findAll({
+            where: {
+                userId: userId
+            }
+        }).then(collections => {
+            res.render('display-playlist', { collections: collections });
+        })
+    } else {
+        res.redirect('/users/login')
+    }
+    
 })
 
 
