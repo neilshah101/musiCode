@@ -12,14 +12,14 @@
 <img src="{{album.cover_medium}}"><br>
 <a target="_blank" href="{{preview}}">preview</a>
 <form method="post" action="/playlists/collection">
-<input type="hidden" value="{{userid}}" name="userid">
-<input type="hidden" value="{{id}}" name="id">
-<input type="hidden" value="{{title}}" name="title">
-<input type="hidden" value="{{artist.name}}" name="artistName">
-<input type="hidden" value="{{album.title}}" name="albumTitle">
-<input type="hidden" value="{{album.cover_medium}}" name="coverUrl">
-<input type="hidden" value="{{preview}}" name="previewUrl">
-<button>Add To Collection</button>
+   <input type="hidden" value="{{userid}}" name="userId">
+   <input type="hidden" value="{{id}}" name="id">
+   <input type="hidden" value="{{title}}" name="title">
+   <input type="hidden" value="{{artist.name}}" name="artistName">
+   <input type="hidden" value="{{album.title}}" name="albumTitle">
+   <input type="hidden" value="{{album.cover_medium}}" name="coverUrl">
+   <input type="hidden" value="{{preview}}" name="previewUrl">
+   <button>Add To Collection</button>
 </form>
 <br><br><br>
 {{/response}}
