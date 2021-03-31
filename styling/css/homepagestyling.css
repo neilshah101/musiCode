@@ -16,3 +16,8 @@ Body {
   padding: 50x 0;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
