@@ -35,13 +35,18 @@ router.get('/my-posts', (req, res) => {
     const userId = req.session.userId
     const username = req.session.username
 
-    models.Post.findAll({
-        where: {
-            userId: userId,
-        }
-    }).then(posts => {
-        res.render('my-posts', {posts: posts})
-})
+    if(username) {
+        models.Post.findAll({
+            where: {
+                userId: userId,
+            }
+        }).then(posts => {
+            res.render('my-posts', {posts: posts})
+        })
+    } else {
+        res.redirect('/users/login')
+    }
+    
 })
 
 router.post('/add-post', (req, res) => {
