@@ -53,12 +53,33 @@ router.post('/add-post', (req, res) => {
 router.post('/delete-post', (req, res) => {
     const postId = req.body.postId
 
-    models.Post.destroy({
+    let deletePost = models.Post.destroy({
         where: {
             id: postId
         }
     }).then(deletedPost => {
         res.redirect('/posts')
+    })
+})
+
+router.post('/update-post', (req, res) => {
+
+    const title = req.body.title
+    const body = req.body.body
+    const projectUrl = req.body.projectUrl
+    const userId = req.session.userId
+
+    let update = models.Post.update({
+        title: title, 
+        body: body, 
+        projectUrl: projectUrl,
+        userId: userId,
+    }, {
+        where: {
+            id: postId
+        }
+    }).then(updatedPost => {
+        res.redirect('/posts/my-posts')
     })
 })
 
