@@ -36,6 +36,21 @@ router.get('/mycollection', (req, res) => {
 
 })
 
+router.get('/mycollection/:userId', (req, res) => {
+    const userId = req.params.userId
+    const username = req.session.username
+    console.log(userId)
+
+    models.Collection.findAll({
+        where: {
+            userId: userId
+        }
+    }).then(collections => {
+        res.render('display-playlist', { collections: collections });
+    })
+
+})
+
 
 router.post('/collection', (req, res) => {
 
