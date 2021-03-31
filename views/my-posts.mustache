@@ -35,13 +35,15 @@
     {{! this display posts from all users }}
     <div id='postsContainer'>
         {{#posts}}
-        {{! <form class='post_container' method="POST" action='/delete-post'>
-            <input type="hidden" value="{{id}}
+        <form class='post_container' method="POST" action='/delete-post'>
+            <input type="hidden" value="{{id
             <input type="hidden" value="{{id}}" name="postId"/>
             <div>{{title}}</div>
             <div>{{body}}</div>
             <a target="_blank" href="{{projectUrl}}">Project Link</a>
             <br>
+            <button><a href = "/playlists/mycollection/{{userId}}">checkout what iam listening</a></button>
+
             <br>
         {{/posts}}
     </div>
