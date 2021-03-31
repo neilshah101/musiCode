@@ -6,11 +6,31 @@ const SALT_ROUNDS = 10
 const authenticate = require('../authentication/auth')
 
 router.get('/dashboard', authenticate, (req, res) => {
-    res.render('dashboard')
+    
+    models.Post.findAll({})
+    .then(posts => {
+    res.render('dashboard', {posts: posts, firstName: req.session.firstName})
 })
 
-router.post('/dashboard', (req, res) => {
+router.post('/dashboard', authenticate, (req, res) => {
+    const title = req.body.title
+    const body = req.body.body
+    const projectUrl = req.body.projectUrl
+    const userId = req.session.userId
+    
+    let post = models.Post.build({
+        title: title, 
+        body: body, 
+        projectUrl: projectUrl,
+        userId: userId,
+    })
 
+    post.save().then((savedPost) => {
+        console.log(savedPost)
+        res.redirect('/users/dashboard')
+    })
+
+    })
 })
 
 router.get('/register', (req, res) => {
@@ -78,6 +98,7 @@ router.post('/login', async(req, res) => {
                 if (req.session) {
                     req.session.userId = user.id
                     req.session.username = user.username
+                    req.session.firstName = user.firstName
                     console.log(req.session)
                     res.redirect('/users/dashboard')
                 }
