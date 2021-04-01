@@ -13,11 +13,11 @@ const postRoutes = require('./routes/posts')
 const searchRoutes = require('./routes/searches')
 const authenticate = require('./authentication/auth')
 const fetch = require('node-fetch')
+require('dotenv').config()
+const PORT = process.env.PORT || 8080
 
 app.use("/styling",express.static("styling"))
 
-
-const PORT = 3000
 const VIEWS_PATH = path.join(__dirname, '/views')
 
 
@@ -29,7 +29,7 @@ app.set('view engine', 'mustache')
 
 app.use(express.urlencoded())
 app.use(session({
-    secret: 'somesecret',
+    secret: process.env.SESSION_KEY,
     resave: false,
     saveUninitialized: true
 }))
@@ -38,8 +38,8 @@ app.use('/playlists', playlistRoutes)
 app.use('/searches', searchRoutes)
 app.use('/posts', postRoutes)
 
-// going to home page........ still have to design home page i have created this to just enable search function.
 app.get('/', (req, res) => {
+    console.log(req.session)
     res.render('index')
 })
 
