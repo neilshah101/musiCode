@@ -13,13 +13,13 @@ router.post('/search', (req, res) => {
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${search}`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "e118aa187bmsh51dce0dd58837e0p1bcfe5jsn469699bec0df",
+            "x-rapidapi-key": "01eee2a29dmsh1db73f5426295c4p168ec1jsnb160ddf72ea8",
             "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
         }
     }).then(response => {
         return response.json();
     }).then(response => {
-        res.render('search-results', { response: response.data, userId: userId });
+        res.render('search-results', { response: response.data, userId: userId, search: search });
     })
 })
 
