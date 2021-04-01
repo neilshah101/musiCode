@@ -41,7 +41,7 @@ router.get('/my-posts', (req, res) => {
                 userId: userId,
             }
         }).then(posts => {
-            res.render('my-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username, lastName: lastName.session.lastName})
+            res.render('my-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username, lastName: req.session.lastName})
         })
     } else {
         res.redirect('/users/login')
