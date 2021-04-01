@@ -7,17 +7,39 @@ Body {
     margin: 0;
   }
 
+.signUpButton {
+  height: 15px;
+  width: 10px;
+}
+
 .welcomeText {
-  font-size: 4rem;
-  color: rgba(255, 255, 255, 0.89);
+  font-size: 3rem;
+  color: rgb(255, 255, 255);
   height: 200px;
   text-align: center;
   margin: auto;
   padding: 50x 0;
+  font-family: 'Roboto Slab', serif;
+}
+
+.smallParagraph {
+  font-size: 1.5rem;
 }
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+@media (min-width: 300px) and (max-width: 600px) {
+  
+  .welcomeText {
+    font-size: 1.6rem;
+  }
+
+  .smallParagraph {
+    font-size: 1rem;
+  }
+  
 }
