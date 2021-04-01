@@ -7,7 +7,7 @@
     <body>
         {{>menu}}
         <br>
-        <h2 class="headingTitle">Search Results</h2>
+        <h2 class="headingTitle">Search Results  "{{search}}"</h2>
         <br>
         {{#response}}
         <!-- Content -->
@@ -23,6 +23,7 @@
                     <div class="card-body text-center">
                         <h5 class="h5 font-weight-bold">{{artist.name}}</h5>
                         <p class="mb-0">{{title}}</p>
+                        <p class="mb-0">{{album.title}}</p>
                         <br>
                         <button style="background-color: Transparent; border: none"><a class="text-dark" target="_blank" href="{{preview}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
