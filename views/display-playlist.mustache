@@ -1,23 +1,36 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-{{>header}}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>musiCode</title>
+    {{>header}}
 </head>
 <body>
+
+<div class="mainContent">
 {{>menu}}
+
+<h3>My Collection</h3>
+<br>
+
 {{#collections}}
 
-
-{{songTitle}}  ,  {{artist}}<br>
+<b>{{songTitle}}</b><br>
+<i>{{artist}}</i><br>
 {{albumTitle}}<br>
+
 <img src="{{coverUrl}}"><br>
-<button><a target="_blank" href="{{previewUrl}}">preview</a></button>
+<button><a target="_blank" href="{{previewUrl}}">Preview Song</a></button>
 <form method="post" action="/playlists/delete-collection">
 <input type="hidden" name="collectionId" value="{{id}}">
-<button>Remove This Track</button>
+<button>Remove From My Collection</button>
 </form>
-<br><br><br>
+<br><br>
 {{/collections}}
+</div>
 {{>footer}}
 </body>
-
 </html>
+

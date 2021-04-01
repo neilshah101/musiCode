@@ -1,16 +1,25 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>search result</title>
+    {{>header}}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>musiCode</title>
 </head>
 <body>
+    {{>menu}}
+<br>
+<h2>Search Results</h2>
+<br>
 
 {{#response}}
 
-
-{{title}}  ,  {{artist.name}}<br>
+<b>{{title}}</b><br>
+<i>{{artist.name}}</i><br>
 {{album.title}}<br>
 <img src="{{album.cover_medium}}"><br>
-<a target="_blank" href="{{preview}}">preview</a>
+<a target="_blank" href="{{preview}}">Preview Song</a>
 <form method="post" action="/playlists/collection">
 <input type="hidden" value="{{userId}}" name="userId">
 <input type="hidden" value="{{id}}" name="id">
@@ -23,6 +32,6 @@
 </form>
 <br><br><br>
 {{/response}}
+{{>footer}}
 </body>
-
 </html>
