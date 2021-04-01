@@ -16,7 +16,7 @@ router.use(session({
 router.get('/display-posts', (req, res) => {
     models.Post.findAll({})
     .then(posts => {
-        res.render('display-posts', {posts: posts})
+        res.render('display-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username})
     })
 })
 
@@ -41,7 +41,7 @@ router.get('/my-posts', (req, res) => {
                 userId: userId,
             }
         }).then(posts => {
-            res.render('my-posts', {posts: posts, firstName: req.session.firstName})
+            res.render('my-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username})
         })
     } else {
         res.redirect('/users/login')
