@@ -75,22 +75,34 @@ router.post('/delete-post', (req, res) => {
             id: postId
         }
     }).then(deletedPost => {
-        res.json("deleted")
+        res.redirect('/posts/my-posts')
     })
 })
 
-router.post('/update-post', (req, res) => {
+router.get('/update-post/:postId', (req,res) => {
+    const postId = req.params.postId
+    console.log(req.session)
+    models.Post.findOne({
+        where: {
+            id: postId
+        }
+    }).then(post => {
+        res.render('update-post', {post: post})
+    })
+})
+
+router.post('/update-post/:postId', (req, res) => {
 
     const title = req.body.title
     const body = req.body.body
     const projectUrl = req.body.projectUrl
     const userId = req.session.userId
+    const postId = req.params.postId
 
     models.Post.update({
         title: title, 
         body: body, 
         projectUrl: projectUrl,
-        userId: userId,
     }, {
         where: {
             id: postId
