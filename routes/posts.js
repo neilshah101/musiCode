@@ -53,12 +53,16 @@ router.post('/add-post', (req, res) => {
     const body = req.body.body
     const projectUrl = req.body.projectUrl
     const userId = req.session.userId
+    const firstName = req.session.firstName
+    const username = req.session.username
     
     let post = models.Post.build({
         title: title, 
         body: body, 
         projectUrl: projectUrl,
         userId: userId,
+        firstName: firstName,
+        username: username,
     })
 
     post.save().then((savedPost) => {
