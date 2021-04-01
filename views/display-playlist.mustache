@@ -1,23 +1,44 @@
 <html>
-<head>
-{{>header}}
-</head>
-<body>
-{{>menu}}
-{{#collections}}
-
-
-{{songTitle}}  ,  {{artist}}<br>
-{{albumTitle}}<br>
-<img src="{{coverUrl}}"><br>
-<button><a target="_blank" href="{{previewUrl}}">preview</a></button>
-<form method="post" action="/playlists/delete-collection">
-<input type="hidden" name="collectionId" value="{{id}}">
-<button>Remove This Track</button>
-</form>
-<br><br><br>
-{{/collections}}
-{{>footer}}
-</body>
+    <head>
+        {{>header}}
+        <link rel="stylesheet" href="../styling/css/search-collection-styling.css">
+    </head>
+    <body>
+        {{>menu}}
+        {{#collections}}
+        <!-- Content -->
+        <div class="container d-flex justify-content-center my-4 mb-5">
+            <div id="mobile-box">
+                <!-- Card -->
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view">
+                        <img class="card-img-top" src="{{coverUrl}}" alt="Card image cap">
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body text-center">
+                        <h5 class="h5 font-weight-bold">{{artist}}</h5>
+                        <p class="mb-0">{{songTitle}}</p>
+                        <br>
+                        <button style="background-color: Transparent; border: none"><a class="text-dark" target="_blank" href="{{previewUrl}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                            </svg>
+                        </a></button>
+                    </div>
+                    <div class="deleteSongContainer">
+                        <form method="post" action="/playlists/delete-collection">
+                            <input type="hidden" name="collectionId" value="{{id}}">
+                            <button class="btn btn-outline-info" style="border: none">Remove This Track</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Card -->
+        </div>
+        <!-- Content -->
+        {{/collections}}
+        {{>footer}}
+    </body>
 
 </html>

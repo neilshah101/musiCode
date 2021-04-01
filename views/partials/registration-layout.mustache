@@ -1,32 +1,20 @@
-<div class="col-md-6 mt-2">
-        <form action="/users/register" method="POST" class="row g-3 needs-validation" novalidate>
+<div class="col-md-6 mt-2 mx-auto">
+        <form action="/users/register" method="POST" class="row g-3">
           <div class="col-md-6">
-            <label for="validationCustom01" class="form-label">First name</label>
-            <input type="text" name="firstName" class="form-control" id="validationCustom01" placeholder="Enter first name" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
+            <label class="form-label">First name</label>
+            <input type="text" name="firstName" class="form-control" placeholder="Enter first name">
           </div>
           <div class="col-md-6">
-            <label for="validationCustom02" class="form-label">Last name</label>
-            <input type="text" name="lastName" class="form-control" id="validationCustom02" placeholder="Enter last name" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
+            <label class="form-label">Last name</label>
+            <input type="text" name="lastName" class="form-control" placeholder="Enter last name">
           </div>
           <div class="col-md-6">
-            <label for="validationCustomUsername" class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="Enter username" required>
-            <div class="invalid-feedback">
-              Please choose a username.
-            </div>
+            <label class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter username">
           </div>
           <div class="col-md-6">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Create Password" name="password" required>
-            <div class="invalid-feedback">
-              Please provide a valid password.
-            </div>
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Create Password" name="password">
           </div>
           <div class="col-12">
             <button class="btn btn-outline-info" type="submit">Register</button>
