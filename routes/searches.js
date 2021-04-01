@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const models = require('../models')
 const fetch = require('node-fetch')
-
+require('dotenv').config()
 
 // search the tracks, albums, etc
 router.post('/search', (req, res) => {
@@ -13,7 +13,7 @@ router.post('/search', (req, res) => {
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${search}`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "01eee2a29dmsh1db73f5426295c4p168ec1jsnb160ddf72ea8",
+            "x-rapidapi-key": process.env.API_KEY,
             "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
         }
     }).then(response => {
