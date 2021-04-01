@@ -36,17 +36,19 @@ router.get('/mycollection', (req, res) => {
 
 })
 
-router.get('/mycollection/:userId', (req, res) => {
+router.get('/mycollection/:firstName/:userId', (req, res) => {
     const userId = req.params.userId
     const username = req.session.username
-    console.log(userId)
+    const firstName = req.params.firstName
+        // console.log(userId)
+    console.log(firstName)
 
     models.Collection.findAll({
         where: {
             userId: userId
         }
     }).then(collections => {
-        res.render('display-playlist-2', { collections: collections });
+        res.render('display-playlist-2', { collections: collections, firstName: firstName });
     })
 
 })
@@ -61,6 +63,7 @@ router.post('/collection', (req, res) => {
     const albumTitle = req.body.albumTitle
     const coverUrl = req.body.coverUrl
     const previewUrl = req.body.previewUrl
+    const firstName = req.session.firstName
 
     if (userId) {
         let collection = models.Collection.build({
@@ -70,7 +73,8 @@ router.post('/collection', (req, res) => {
             artist: artist,
             albumTitle: albumTitle,
             coverUrl: coverUrl,
-            previewUrl: previewUrl
+            previewUrl: previewUrl,
+            firstName: firstName,
         })
 
         collection.save().then((savedCollection) => {

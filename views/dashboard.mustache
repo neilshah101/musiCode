@@ -45,6 +45,7 @@
         {{#posts}}
         <form class='post_container' method="POST" action='/delete-post'>
             <input type="hidden" value="{{id}}" name="postId"/>
+            <input type="hidden" value="{{firstName}}" name="firstName"/>
             <div><b>{{title}}</b></div>
             <div>{{username}}</div>
             <div>{{firstName}}</div>
@@ -52,7 +53,7 @@
             <div>{{body}}</div>
             <a target="_blank" href="{{projectUrl}}">Project Link</a>
             <br>
-            <a href="/playlists/mycollection/{{userId}}">Checkout What I'm Listening To</a>
+            <a href="/playlists/mycollection/{{firstName}}/{{userId}}">Checkout What I'm Listening To</a>
         </form>
         <br>
         <br>
