@@ -15,16 +15,16 @@ router.use(session({
 
 router.get('/display-posts', (req, res) => {
     models.Post.findAll({})
-    .then(posts => {
-        res.render('display-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username})
-    })
+        .then(posts => {
+            res.render('display-posts', { posts: posts, firstName: req.session.firstName, username: req.session.username })
+        })
 })
 
 router.get('/add-post', (req, res) => {
     const userId = req.session.userId
     const username = req.session.username
 
-    if(username) {
+    if (username) {
         res.render('add-post')
     } else {
         res.redirect('/users/login')
@@ -35,13 +35,13 @@ router.get('/my-posts', (req, res) => {
     const userId = req.session.userId
     const username = req.session.username
 
-    if(username) {
+    if (username) {
         models.Post.findAll({
             where: {
                 userId: userId,
             }
         }).then(posts => {
-            res.render('my-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username, lastName: req.session.lastName})
+            res.render('my-posts', { posts: posts, firstName: req.session.firstName, username: req.session.username, lastName: req.session.lastName })
         })
     } else {
         res.redirect('/users/login')
@@ -56,10 +56,10 @@ router.post('/add-post', (req, res) => {
     const firstName = req.session.firstName
     const username = req.session.username
     const lastName = req.session.lastName
-    
+
     let post = models.Post.build({
-        title: title, 
-        body: body, 
+        title: title,
+        body: body,
         projectUrl: projectUrl,
         userId: userId,
         firstName: firstName,
@@ -69,7 +69,7 @@ router.post('/add-post', (req, res) => {
 
     post.save().then((savedPost) => {
         console.log(savedPost)
-        res.redirect('/posts/display-posts')
+        res.redirect('/users/dashboard')
     })
 })
 
@@ -85,7 +85,7 @@ router.post('/delete-post', (req, res) => {
     })
 })
 
-router.get('/update-post/:postId', (req,res) => {
+router.get('/update-post/:postId', (req, res) => {
     const postId = req.params.postId
     console.log(req.session)
     models.Post.findOne({
@@ -93,7 +93,7 @@ router.get('/update-post/:postId', (req,res) => {
             id: postId
         }
     }).then(post => {
-        res.render('update-post', {post: post})
+        res.render('update-post', { post: post })
     })
 })
 
@@ -106,8 +106,8 @@ router.post('/update-post/:postId', (req, res) => {
     const postId = req.params.postId
 
     models.Post.update({
-        title: title, 
-        body: body, 
+        title: title,
+        body: body,
         projectUrl: projectUrl,
     }, {
         where: {
