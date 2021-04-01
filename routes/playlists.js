@@ -46,7 +46,7 @@ router.get('/mycollection/:userId', (req, res) => {
             userId: userId
         }
     }).then(collections => {
-        res.render('display-playlist', { collections: collections });
+        res.render('display-playlist-2', { collections: collections });
     })
 
 })

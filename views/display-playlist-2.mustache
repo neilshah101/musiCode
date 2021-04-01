@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>musiCode</title>
+        <link rel="stylesheet" href="../../styling/css/styles.css">
+        <link rel="stylesheet" href="../../styling/css/search-collection-styling.css">
+        <link type="text/css" rel="stylesheet" href="../../styling/css/bootstrap.css">
+    </head>
+    <body>
+        
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="../../styling/css/images/musiCode.png" alt="" width="120" height="96" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/users/dashboard">Dashboard<span class="sr-only"></span></a>
+      </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/users/login">
+                <svg class="bi bi-power" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+                  <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+                </svg>
+                Login/Register</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/playlists/mycollection">My Collection</a></li>
+                <li><a class="dropdown-item" href="/posts/my-posts">My Posts</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/users/logout">
+                    <svg class="bi bi-power" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+                        <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+                    </svg>
+                    Log out</a></li>
+              </ul>
+            </li>
+            </ul>
+
+            <form class="d-flex" method="post" action="/searches/search">
+              <input class="form-control mr-2" type="text" name="searchtextbox" placeholder="Search artist or song" aria-label="Search">
+              <button class="btn btn-dark" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </nav>
+
+        <br>
+        <h3 class="headingTitle">user Collection</h3>
+        <br>
+        {{#collections}}
+        <!-- Content -->
+        <div class="container d-flex justify-content-center my-4 mb-5">
+            <div id="mobile-box">
+                <!-- Card -->
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view">
+                        <img class="card-img-top" src="{{coverUrl}}" alt="Card image cap">
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body text-center">
+                        <h5 class="h5 font-weight-bold">{{artist}}</h5>
+                        <p class="mb-0">{{songTitle}}</p>
+                        <br>
+                        <button style="background-color: Transparent; border: none"><a class="text-dark" target="_blank" href="{{previewUrl}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                            </svg>
+                        </a></button>
+                    </div>
+                    <div class="deleteSongContainer">
+                        <form method="post" action="/playlists/delete-collection">
+                            <input type="hidden" name="collectionId" value="{{id}}">
+                            <button class="btn btn-outline-info" style="border: none">Remove From My Collection</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Card -->
+        </div>
+        <!-- Content -->
+        {{/collections}}
+        {{>footer}}
+    </body>
+</html>
+
+
