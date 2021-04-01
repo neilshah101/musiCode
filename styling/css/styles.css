@@ -6,11 +6,10 @@ body {
     text-align: center;
   }
   
-/* h3, h4 {
+h3, h4 {
   font-family: 'Roboto Slab', serif;
-  font-weight:bolder;
 } 
-   */
+  
 footer {
     position: static;
     bottom: 0;

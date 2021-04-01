@@ -1,20 +1,25 @@
+<head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+</head>
+
 <div class="col-md-6 mt-2 mx-auto">
         <form action="/users/register" method="POST" class="row g-3">
           <div class="col-md-6">
             <label class="form-label">First name</label>
-            <input type="text" name="firstName" class="form-control" placeholder="Enter first name">
+            <input type="text" name="firstName" class="form-control" placeholder="Enter first name" required>
           </div>
           <div class="col-md-6">
             <label class="form-label">Last name</label>
-            <input type="text" name="lastName" class="form-control" placeholder="Enter last name">
+            <input type="text" name="lastName" class="form-control" placeholder="Enter last name" required>
           </div>
           <div class="col-md-6">
             <label class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" placeholder="Enter username">
+            <input type="text" name="username" class="form-control" placeholder="Enter username" required>
           </div>
           <div class="col-md-6">
             <label class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Create Password" name="password">
+            <input type="password" class="form-control" placeholder="Create Password" name="password" required>
           </div>
           <div class="col-12">
             <button class="btn btn-outline-info" type="submit">Register</button>
