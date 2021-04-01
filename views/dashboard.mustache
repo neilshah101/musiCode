@@ -1,36 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    {{>header}}
-</head>
-<body>
-    {{>menu}}
-    <br>
-    
-    <h3>Welcome back, {{firstName}}!</h3>
-    <br>
-    <h4><i>What are you working on?</i></h4>
-    {{! this adds a post }}
-    <form method="POST" action='/posts/add-post' id='inputContainer'>
-        <div id="subjectDiv">
-            <input type="text" placeholder="Title" id="titleTextBox" name="title"/>
-            
+    <head>
+        {{>header}}
+    </head>
+    <body>
+        {{>menu}}
+        <br>
+        <h3 class="headingTitle">Welcome back, {{firstName}}!</h3>
+        <br>
+        <div class="col-md-6 mx-auto">
+            <div class="card text-center">
+                <h5 class="card-header" id="postCardHeader"><i>What are you working on?</i></h5>
+                <div class="card-body">
+                <form method="POST" action='/posts/add-post' id='inputContainer'>
+                    <div id="subjectDiv">
+                        <label>What's your baby's name?</label>
+                        <br>
+                        <input type="text" placeholder="The project name silly" id="titleTextBox" name="title"/>
+                    </div>
+                    <br>
+                    <div id="bodyDiv">
+                        <label>Tell us about it!</label>
+                        <br>
+                        <input type="text" placeholder="Spill the beans.." id="bodyTextBox" name="body"/>
+                    </div>
+                    <br>
+                    <div id="projectUrl">
+                        <label>Give us the link</label>
+                        <br>
+                        <input type="text" placeholder="Let us see the goods" id="projectUrlTextBox" name="projectUrl"/>
+                    </div>
+                    <br>
+                    <div id="submitDiv">
+                        <button class="btn btn-outline-info">Lay it on us!</button>
+                    </div>
+                </form>
+                </div>
+            </div>
         </div>
-        <div id="bodyDiv">
-            <input type="text" placeholder="Body" id="bodyTextBox" name="body"/>
-        </div>
-        <div id="projectUrl">
-            <input type="text" placeholder="projectUrl" id="projectUrlTextBox" name="projectUrl"/>
-        <div id="submitDiv">
-            <button id="postButton">Post</button>
-        </div>
-    </form>
-    <br>
-    <br>
-
-<h4><i>Discover What Other Developers are Listening to</i></h4>
-    {{! this display posts from all users }}
-    <div id='postsContainer'>
+        <br>
+      <h4><i>Discover What Other Developers are Listening to</i></h4>
+      {{! this display posts from all users }}
+      <div id='postsContainer'>
         {{#posts}}
         <form class='post_container' method="POST" action='/delete-post'>
             <input type="hidden" value="{{id}}" name="postId"/>
@@ -41,11 +52,10 @@
             <div>{{body}}</div>
             <a target="_blank" href="{{projectUrl}}">Project Link</a>
         </form>
-        <a href = "/playlists/mycollection/{{userId}}">Check out what I'm listening to</a>
         <br>
         <br>
         {{/posts}}
-    {{>footer}}
-    </div>
-</body>
+       </div>
+       {{>footer}}
+    </body>
 </html>

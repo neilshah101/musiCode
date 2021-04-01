@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    {{> header}}
-    <link rel="stylesheet" href="../styling/css/homepagestyling.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap" rel="stylesheet">
-
-
-</head>
-<body>
-  <div class="homepageBody">
-   {{> menu}}
-   <div class="welcomeText">
-   <br>
-   <b><p>Music sharing for developers,<br>
-    by developers</p>
-    <p class="smallParagraph">Share the music you love listening to while you're coding your latest project</p>
-    <a href="users/register">
-    <button type="button" class="btn btn-outline-info btn-lg signupButton">Sign up now</button>
-   </a>
-    </div>
-    </div>
-
-    {{>footer}}
-</body>
+<html lang="en">   
+  <head>
+      {{> header}}
+      <link rel="stylesheet" href="../styling/css/homepagestyling.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap" rel="stylesheet">
+  </head>
+  <body>
+     <div class="homepageBody">
+       {{> menu}}
+       <div class="welcomeText">
+         <br>
+         <b><p>Music sharing for developers,<br>
+          by developers</p>
+          <p class="smallParagraph">Share the music you love listening to while you're coding your latest project</p>
+          <a href="users/register">
+          <button type="button" class="btn btn-outline-info btn-lg signupButton">Sign up now</button>
+          </a>
+        </div>
+      </div>
+      {{>footer}}
+  </body>
 </html>
