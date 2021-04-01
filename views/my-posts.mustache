@@ -11,9 +11,9 @@
         {{>menu}}
         <br>
         
-        <h3>Hello, {{firstName}}!</h3>
+        <h3 class="headingTitle">Hello, {{firstName}}!</h3>
         
-        <h4><i>You are viewing all of your posts.</i></h4>
+        <h4 class="headingTitle"><i>You are viewing all of your posts.</i></h4>
         <br>
         {{#posts}}
         <div class="container mt-5 mb-5">
@@ -47,6 +47,7 @@
                                     <br>
                                     <br>
                                     <form class='post_container' method="POST" action='/posts/delete-post'>
+                                        <input type="hidden" value="{{id}}" name="postId"/>
                                         <button class="btn btn-outline-info">Delete</button>
                                     </form> 
                                     <br>
