@@ -1,0 +1,35 @@
+
+
+.addSongContainer {
+    text-align: center;
+}
+
+.deleteSongContainer {
+    text-align: center;
+}
+
+#mobile-box {
+  width: 360px; 
+}
+  
+.card {
+    -webkit-border-radius: 10px;
+    border-radius: 10px; 
+}
+  
+.card .view {
+    -webkit-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    border-top-right-radius: 10px; 
+}
+  
+.card h5 a {
+    color: #0d47a1;
+  }
+.card h5 a:hover {
+    color: #072f6b;
+  }
+  
+
+  
