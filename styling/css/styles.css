@@ -4,8 +4,11 @@ body {
 
 .headingTitle{
     text-align: center;
-  }
-  
+}
+
+#postCardHeader {
+}
+
 footer {
     position: static;
     bottom: 0;
