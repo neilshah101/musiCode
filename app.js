@@ -14,8 +14,7 @@ const searchRoutes = require('./routes/searches')
 const authenticate = require('./authentication/auth')
 const fetch = require('node-fetch')
 require('dotenv').config()
-// const PORT = process.env.PORT || 8080
-const PORT = 3000
+const PORT = process.env.PORT || 8080
 
 app.use("/styling",express.static("styling"))
 
