@@ -35,6 +35,9 @@
         <form class='post_container' method="POST" action='/delete-post'>
             <input type="hidden" value="{{id}}" name="postId"/>
             <div><b>{{title}}</b></div>
+            <div>{{username}}</div>
+            <div>{{firstname}}</div>
+            <div>{{createdAt}}</div>
             <div>{{body}}</div>
             <a target="_blank" href="{{projectUrl}}">Project Link</a>
         </form>

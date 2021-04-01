@@ -9,7 +9,7 @@ router.get('/dashboard', authenticate, (req, res) => {
 
     models.Post.findAll({})
         .then(posts => {
-            res.render('dashboard', { posts: posts, firstName: req.session.firstName })
+            res.render('dashboard', { posts: posts, firstName: req.session.firstName, username: req.session.username })
         })
 
     router.post('/dashboard', authenticate, (req, res) => {
