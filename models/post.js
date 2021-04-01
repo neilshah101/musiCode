@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     projectUrl: DataTypes.STRING,
     userId: DataTypes.INTEGER,
     firstName: DataTypes.STRING,
-    username: DataTypes.STRING
+    username: DataTypes.STRING,
+    lastName: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Post',
