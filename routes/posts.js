@@ -16,7 +16,7 @@ router.use(session({
 router.get('/display-posts', (req, res) => {
     models.Post.findAll({})
     .then(posts => {
-        res.render('display-posts', {posts: posts})
+        res.render('display-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username})
     })
 })
 
@@ -41,7 +41,7 @@ router.get('/my-posts', (req, res) => {
                 userId: userId,
             }
         }).then(posts => {
-            res.render('my-posts', {posts: posts, firstName: req.session.firstName})
+            res.render('my-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username})
         })
     } else {
         res.redirect('/users/login')
@@ -53,12 +53,16 @@ router.post('/add-post', (req, res) => {
     const body = req.body.body
     const projectUrl = req.body.projectUrl
     const userId = req.session.userId
+    const firstName = req.session.firstName
+    const username = req.session.username
     
     let post = models.Post.build({
         title: title, 
         body: body, 
         projectUrl: projectUrl,
         userId: userId,
+        firstName: firstName,
+        username: username,
     })
 
     post.save().then((savedPost) => {
@@ -75,22 +79,34 @@ router.post('/delete-post', (req, res) => {
             id: postId
         }
     }).then(deletedPost => {
-        res.json("deleted")
+        res.redirect('/posts/my-posts')
     })
 })
 
-router.post('/update-post', (req, res) => {
+router.get('/update-post/:postId', (req,res) => {
+    const postId = req.params.postId
+    console.log(req.session)
+    models.Post.findOne({
+        where: {
+            id: postId
+        }
+    }).then(post => {
+        res.render('update-post', {post: post})
+    })
+})
+
+router.post('/update-post/:postId', (req, res) => {
 
     const title = req.body.title
     const body = req.body.body
     const projectUrl = req.body.projectUrl
     const userId = req.session.userId
+    const postId = req.params.postId
 
     models.Post.update({
         title: title, 
         body: body, 
         projectUrl: projectUrl,
-        userId: userId,
     }, {
         where: {
             id: postId

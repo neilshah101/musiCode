@@ -6,29 +6,29 @@ const SALT_ROUNDS = 10
 const authenticate = require('../authentication/auth')
 
 router.get('/dashboard', authenticate, (req, res) => {
-    
+
     models.Post.findAll({})
-    .then(posts => {
-    res.render('dashboard', {posts: posts, firstName: req.session.firstName})
-})
+        .then(posts => {
+            res.render('dashboard', { posts: posts, firstName: req.session.firstName, username: req.session.username })
+        })
 
-router.post('/dashboard', authenticate, (req, res) => {
-    const title = req.body.title
-    const body = req.body.body
-    const projectUrl = req.body.projectUrl
-    const userId = req.session.userId
-    
-    let post = models.Post.build({
-        title: title, 
-        body: body, 
-        projectUrl: projectUrl,
-        userId: userId,
-    })
+    router.post('/dashboard', authenticate, (req, res) => {
+        const title = req.body.title
+        const body = req.body.body
+        const projectUrl = req.body.projectUrl
+        const userId = req.session.userId
 
-    post.save().then((savedPost) => {
-        console.log(savedPost)
-        res.redirect('/users/dashboard')
-    })
+        let post = models.Post.build({
+            title: title,
+            body: body,
+            projectUrl: projectUrl,
+            userId: userId,
+        })
+
+        post.save().then((savedPost) => {
+            console.log(savedPost)
+            res.redirect('/users/dashboard')
+        })
 
     })
 })
@@ -37,7 +37,7 @@ router.get('/register', (req, res) => {
     res.render('register')
 })
 
-router.post('/register', async (req, res) => {
+router.post('/register', async(req, res) => {
 
     let firstName = req.body.firstName
     let lastName = req.body.lastName
@@ -110,6 +110,17 @@ router.post('/login', async(req, res) => {
         res.render('login', { message: "Incorrect username or password" })
     }
 })
+
+
+router.get('/logout', function(req, res, next) {
+
+
+    req.session.destroy(err => {
+        console.log(err);
+    })
+
+    res.redirect('/');
+});
 
 
 module.exports = router

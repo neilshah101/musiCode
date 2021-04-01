@@ -12,3 +12,7 @@ footer {
     bottom: 0;
     width: 100%;
   }
+
+  h1 {
+    font-family: 'Roboto Slab', serif;
+  }

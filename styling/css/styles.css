@@ -8,7 +8,11 @@ body {
 
 #postCardHeader {
 }
-
+  
+h3, h4 {
+  font-family: 'Roboto Slab', serif;
+} 
+ 
 footer {
     position: static;
     bottom: 0;

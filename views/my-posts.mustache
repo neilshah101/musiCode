@@ -16,17 +16,21 @@
     <h4><i>You are viewing all of your posts.</i></h4>
     <br>
 
-    {{! this display posts from all users }}
     <div id='postsContainer'>
         {{#posts}}
-        <form class='post_container' method="POST" action='/display-my-post'>
-            <input type="hidden" value="{{id
+        <form class='post_container' method="POST" action='/posts/delete-post'>
+            <input type="hidden" value="{{id}}"/>
             <input type="hidden" value="{{id}}" name="postId"/>
             <div><b>{{title}}</b></div>
+            <div>{{username}}</div>
+            <div>{{firstName}}</div>
+            <div>{{updatedAt}}</div>
             <div>{{body}}</div>
             <a target="_blank" href="{{projectUrl}}">Project Link</a>
             <br>
-            <br>
+            <button>Delete</button>
+        </form>   
+        <a href="/posts/update-post/{{id}}"><button>Edit</button></a>
         {{/posts}}
     </div>
     {{>footer}}
