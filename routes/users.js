@@ -119,7 +119,7 @@ router.get('/logout', function(req, res, next) {
         console.log(err);
     })
 
-    res.redirect('/home');
+    res.redirect('/');
 });
 
 
