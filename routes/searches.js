@@ -8,7 +8,7 @@ const fetch = require('node-fetch')
 router.post('/search', (req, res) => {
     const search = req.body.searchtextbox
     const userId = req.session.userId
-    console.log(userId)
+        // console.log(userId)
     console.log(search)
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${search}`, {
         "method": "GET",
