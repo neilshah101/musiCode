@@ -20,3 +20,19 @@ footer {
   }
 
   
+.news-card {
+    border-radius: 8px
+}
+
+.news-feed-image {
+    border-radius: 8px;
+    width: 100%
+}
+
+.date {
+    font-size: 12px
+}
+
+.username {
+    color: blue
+}
