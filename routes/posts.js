@@ -41,7 +41,7 @@ router.get('/my-posts', (req, res) => {
                 userId: userId,
             }
         }).then(posts => {
-            res.render('my-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username})
+            res.render('my-posts', {posts: posts, firstName: req.session.firstName, username: req.session.username, lastName: lastName.session.lastName})
         })
     } else {
         res.redirect('/users/login')
@@ -55,6 +55,7 @@ router.post('/add-post', (req, res) => {
     const userId = req.session.userId
     const firstName = req.session.firstName
     const username = req.session.username
+    const lastName = req.session.lastName
     
     let post = models.Post.build({
         title: title, 
@@ -63,6 +64,7 @@ router.post('/add-post', (req, res) => {
         userId: userId,
         firstName: firstName,
         username: username,
+        lastName: lastName,
     })
 
     post.save().then((savedPost) => {
